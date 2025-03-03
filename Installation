@@ -1,0 +1,13 @@
+- kubectl create namespace argocd
+- kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+- kubectl port-forward svc/argocd -n argocd 8080:443 --address 0.0.0.0 &
+"paste external ip on browser, you will be able to see the console"
+
+get the secret by 
+- kubectl get secret -n argocd argocd-initial-secret -o yaml
+decode base64 password
+- echo basecode | base64 -f
+
+login as admin and passed
+____________________________________
+Proceed with argocd cd pipeline
